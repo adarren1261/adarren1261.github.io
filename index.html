@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darren Armstrong — Senior Electrical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0B1426;
+  --navy-mid: #132039;
+  --accent: #3B82F6;
+  --accent-dim: #1E3A5F;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-light: #94A3B8;
+  --bg-light: #F0F4F8;
+  --bg-white: #FFFFFF;
+  --border: #E2E8F0;
+  --amber: #F59E0B;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  line-height: 1.2;
+}
+
+a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+a:hover { opacity: 0.8; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11, 20, 38, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600; font-size: 1.05rem; color: #fff;
+  letter-spacing: -0.01em;
+}
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-links a {
+  color: var(--text-light); font-size: 0.85rem; font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; opacity: 1; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  color: #fff;
+  padding: 9rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--navy));
+  pointer-events: none;
+}
+.hero-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: end;
+}
+.hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem; font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  max-width: 540px;
+}
+.hero-contact {
+  display: flex; flex-direction: column; gap: 0.7rem;
+  padding: 1.6rem;
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+}
+.hero-contact a {
+  color: #CBD5E1; font-size: 0.9rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.hero-contact a:hover { color: #fff; }
+.hero-contact svg { width: 18px; height: 18px; flex-shrink: 0; stroke: var(--accent); }
+
+/* ── HERO STATUS CARDS ── */
+.hero-status-row {
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2.6rem;
+  position: relative;
+  z-index: 2;
+}
+.status-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 1.5rem 1.6rem;
+}
+.status-card-label {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.status-card-label.learning { color: var(--amber); }
+.status-card-label.open { color: #34D399; }
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  animation: pulse-hero 2s ease-in-out infinite;
+}
+.status-dot.amber { background: var(--amber); }
+.status-dot.green { background: #34D399; }
+@keyframes pulse-hero {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(255,255,255,0); }
+}
+.status-card h3 {
+  font-size: 1rem; font-weight: 600; color: #fff;
+  margin-bottom: 0.3rem;
+}
+.status-card p {
+  font-size: 0.85rem; color: var(--text-light); line-height: 1.6;
+}
+.status-roles {
+  display: flex; flex-direction: column; gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+.role-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.9rem; color: #E2E8F0;
+}
+.role-item svg {
+  width: 15px; height: 15px; stroke: #34D399; flex-shrink: 0;
+}
+
+/* ── SIGNAL TRACE (hero background element) ── */
+.signal-canvas {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-size: 1.8rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.6rem;
+}
+
+/* ── ABOUT ── */
+.about { background: var(--bg-white); }
+.about-body {
+  max-width: 720px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+.about-body p + p { margin-top: 1.2rem; }
+
+/* ── EXPERTISE ── */
+.expertise { background: var(--bg-light); }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+.exp-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.8rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.exp-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.08);
+}
+.exp-card h3 {
+  font-size: 1.05rem; font-weight: 600;
+  margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.exp-card h3 .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.exp-card p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;
+}
+
+/* ── TIMELINE ── */
+.timeline-section { background: var(--bg-white); }
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 2.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute; left: 7px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+}
+.tl-item {
+  position: relative;
+  padding-bottom: 2.8rem;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -2.5rem; top: 0.35rem;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 3px solid var(--accent);
+  z-index: 2;
+}
+.tl-item.current .tl-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+}
+.tl-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+.tl-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem; font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+.tl-company {
+  font-size: 0.9rem; color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+.tl-desc {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65;
+  max-width: 620px;
+}
+
+/* ── SUMMIT / PRESENTATIONS ── */
+.presentations { background: var(--navy); color: #fff; }
+.presentations .section-title { color: #fff; }
+.pres-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+.pres-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 1.8rem;
+  transition: border-color 0.25s;
+}
+.pres-card:hover { border-color: var(--accent); }
+.pres-card h3 {
+  font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem;
+}
+.pres-card p {
+  font-size: 0.88rem; color: var(--text-light); line-height: 1.65;
+}
+.pres-tag {
+  display: inline-block;
+  font-size: 0.72rem; font-weight: 600;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+/* ── SKILL DEVELOPMENT ── */
+.skill-dev { background: var(--bg-white); }
+.skill-dev-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+.skill-dev-header p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.7;
+  max-width: 660px;
+}
+.skill-dev-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(245,158,11,0.1);
+  color: var(--amber);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.3rem;
+}
+.skill-dev-badge .pulse {
+  width: 7px; height: 7px;
+  background: var(--amber);
+  border-radius: 50%;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.skill-dev-badge.planned {
+  background: rgba(59,130,246,0.1);
+  color: var(--accent);
+}
+.skill-dev-badge.planned .pulse {
+  background: var(--accent);
+  animation: none;
+  opacity: 0.6;
+}
+.program-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.6rem 0;
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(245,158,11,0); }
+}
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+}
+.curric-column h4 {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.curric-column ul {
+  list-style: none; padding: 0;
+}
+.curric-column li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding: 0.35rem 0;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.5;
+}
+.curric-column li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.72rem;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.tools-row {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+.tool-chip {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+}
+.program-link-row {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.program-link-row a {
+  font-size: 0.88rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+}
+.program-link-row a svg {
+  width: 14px; height: 14px; stroke: currentColor;
+}
+@media (max-width: 768px) {
+  .skill-dev-header { grid-template-columns: 1fr; gap: 0.8rem; }
+  .curriculum-grid { grid-template-columns: 1fr; }
+}
+
+/* ── EDUCATION ── */
+.education { background: var(--bg-light); }
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+.edu-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.8rem;
+}
+.edu-card h3 {
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.edu-card .edu-school {
+  font-size: 0.92rem; color: var(--accent); font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.edu-card p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;
+}
+.edu-cert {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(59,130,246,0.08);
+  color: var(--accent);
+  font-size: 0.82rem; font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.6rem;
+}
+
+/* ── CONTACT ── */
+.contact-section { background: var(--bg-white); text-align: center; }
+.contact-section .section-inner { max-width: 580px; }
+.contact-links {
+  display: flex; justify-content: center; gap: 1.4rem;
+  margin-top: 1.5rem; flex-wrap: wrap;
+}
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.92rem; font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.contact-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.contact-btn.primary { background: var(--accent); color: #fff; }
+.contact-btn.secondary { background: var(--bg-light); color: var(--text-primary); border: 1px solid var(--border); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.82rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { padding: 7rem 1.4rem 3.5rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-status-row { grid-template-columns: 1fr; margin-top: 2rem; }
+  .nav-links { display: none; }
+  section { padding: 3.5rem 1.4rem; }
+  .pres-grid { grid-template-columns: 1fr; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .signal-canvas { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Darren Armstrong</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#career">Career</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#learning">Learning</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas class="signal-canvas" id="signalCanvas"></canvas>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Senior Electrical Engineer</div>
+      <h1>Darren Armstrong</h1>
+      <p class="hero-subtitle">
+        Hardware validation engineer with 6+ years of experience in high-speed interface characterization,
+        signal integrity analysis, and Python-based test automation—now expanding into data engineering
+        and scalable data pipeline architecture.
+      </p>
+    </div>
+    <div class="hero-contact">
+      <a href="mailto:adarren1261@gmail.com">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+        adarren1261@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/-darrenarmstrong" target="_blank" rel="noopener">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+        linkedin.com/in/-darrenarmstrong
+      </a>
+    </div>
+  </div>
+
+  <!-- STATUS CARDS -->
+  <div class="hero-status-row">
+    <div class="status-card">
+      <div class="status-card-label learning">
+        <span class="status-dot amber"></span>
+        Currently Enrolled
+      </div>
+      <h3>MIT xPRO — Professional Certificate in Data Engineering</h3>
+      <p>
+        28-week project-based program (completing September 2026) building skills in data pipeline architecture,
+        big data processing with Spark and Kafka, SQL/NoSQL databases, and ML integration.
+        Expanding my Python automation foundation into scalable data infrastructure.
+      </p>
+    </div>
+    <div class="status-card">
+      <div class="status-card-label open">
+        <span class="status-dot green"></span>
+        Open to Work
+      </div>
+      <div class="status-roles">
+        <div class="role-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Data Engineer
+        </div>
+        <div class="role-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Analog Validation / Characterization Engineer
+        </div>
+        <div class="role-item">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+          Hardware Test / Signal Integrity Engineer
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">From Bringup to System Debug</h2>
+    <div class="about-body">
+      <p>
+        I've spent the past six years building deep expertise in post-silicon hardware validation—starting from 
+        foundational lab bringup and measurement procedures, then growing into independent ownership of full 
+        characterization flows across multiple silicon generations.
+      </p>
+      <p>
+        My work has centered on high-speed memory interface characterization, including DDR4/5/6, JEDEC compliance 
+        testing, and SerDes validation. I've driven complex system debug tasks spanning calibration flows, timing 
+        mismatches, jitter behaviors, and training algorithms—working across software, hardware, and instrument 
+        interactions to deliver actionable insights.
+      </p>
+      <p>
+        Alongside validation, I've continuously built automation—from extending test scripts and adding hardware 
+        integration, to developing multi-threaded frameworks and real-time visualization tools. That combination of 
+        hands-on lab depth and software-driven efficiency is what defines my approach to engineering.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="section-inner">
+    <div class="section-label">Technical Expertise</div>
+    <h2 class="section-title">What I Bring to the Bench</h2>
+    <div class="expertise-grid">
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>Hardware Validation</h3>
+        <p>
+          Bench-level characterization of high-speed interfaces using oscilloscopes, BERTs, and VNAs. 
+          Independent ownership of test bringup, data collection, and results review across multiple 
+          platforms and device generations.
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>Signal Integrity & Compliance</h3>
+        <p>
+          DDR4/5/6 characterization and JEDEC compliance testing. Detailed signal analysis including 
+          jitter measurement, eye diagram evaluation, insertion loss characterization, and cross-vendor 
+          comparison across multiple memory configurations.
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>Test Automation</h3>
+        <p>
+          Python-based automation architecture including multi-threaded test execution frameworks, 
+          real-time live-plotting visualization, and automated report generation. Reduced test 
+          turnaround time and manual effort across product generations.
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>System Debug</h3>
+        <p>
+          Complex debug spanning calibration flows, timing mismatches, training algorithms, and 
+          instrument interactions. Ownership of issues that cross software, hardware, and measurement 
+          boundaries to provide actionable root-cause analysis.
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>Instrumentation</h3>
+        <p>
+          Hands-on proficiency with high-speed lab equipment for signal integrity and performance 
+          testing—oscilloscopes, bit error rate testers, vector network analyzers—and development 
+          of new loss and impedance evaluation techniques.
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <h3><span class="dot"></span>Cross-Functional Collaboration</h3>
+        <p>
+          Track record of supporting design and verification teams by providing timely, structured 
+          data and insights. Trusted contributor in complex debug environments, bridging validation 
+          findings with design and system-level decisions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TIMELINE -->
+<section class="timeline-section" id="career">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Professional Timeline</h2>
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-dot"></div>
+        <div class="tl-year">July 2020 – February 2026</div>
+        <div class="tl-role">Senior Electrical Engineer</div>
+        <div class="tl-company">Qualcomm — San Diego, CA</div>
+        <div class="tl-desc">
+          Led full execution of compliance characterization across multiple memory vendors and configurations. 
+          Drove complex system debug involving calibration flows, timing mismatches, and jitter behaviors. 
+          Re-architected compliance automation into a fully Python-based platform and created a live-plotting 
+          system for real-time test visualization. Expanded expertise across multiple protocol and interface 
+          modes for next-generation platform bringup.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">May 2019 – February 2020</div>
+        <div class="tl-role">Electrical Engineer</div>
+        <div class="tl-company">Motorola Solutions — Plantation, FL</div>
+        <div class="tl-desc">
+          Created detailed documentation for consistent testing and knowledge transfer of present and 
+          next-generation two-way subscriber radios. Certified GPS subsystems through outdoor and lab 
+          testing, supporting the launch of the next-gen APX RadioNext platform.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">May 2016 – January 2018</div>
+        <div class="tl-role">Graduate Research Assistant</div>
+        <div class="tl-company">NYU Nano Lab — Brooklyn, NY</div>
+        <div class="tl-desc">
+          Conducted research on carbon-nanotube transistor (CNT) architecture and application for 
+          hardware security through experiments, computer modeling, and simulation. Thesis work on 
+          Physically Unclonable Functions using nanomaterials.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">May 2013 – August 2015</div>
+        <div class="tl-role">Undergraduate Research Assistant</div>
+        <div class="tl-company">Consortium for Applied Acoustoelectronic Technology (CAAT) — Orlando, FL</div>
+        <div class="tl-desc">
+          Developed graphical user interfaces to automate and control data acquisition from test 
+          equipment—an early foundation in test automation that carried forward throughout my career.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRESENTATIONS -->
+<section class="presentations" id="presentations">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--amber);">Engineering Summits</div>
+    <h2 class="section-title">Presented Work</h2>
+    <div class="pres-grid">
+
+      <div class="pres-card">
+        <div class="pres-tag">Engineering Summit</div>
+        <h3>Multi-Threaded Test Automation Framework</h3>
+        <p>
+          Designed and presented a multi-threaded automation architecture that significantly reduced 
+          test execution time for compliance characterization. The framework parallelized instrument 
+          control and data capture across multiple hardware configurations.
+        </p>
+      </div>
+
+      <div class="pres-card">
+        <div class="pres-tag">Engineering Summit</div>
+        <h3>Live-Plotting Real-Time Visualization System</h3>
+        <p>
+          Created and presented a live-plotting automation system enabling real-time visualization 
+          of test results during execution. Improved test observability and debug efficiency by 
+          providing immediate visual feedback on characterization data as it was captured.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILL DEVELOPMENT -->
+<section class="skill-dev" id="learning">
+  <div class="section-inner">
+    <div class="section-label">Active Learning & Planned Certifications</div>
+    <h2 class="section-title">Skill Development</h2>
+    <div class="skill-dev-header">
+      <div>
+        <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem;">
+          Professional Certificate in Data Engineering
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--accent); font-weight: 500; margin-bottom: 0.7rem;">
+          MIT xPRO · Enrolled February 2026 · Completing September 2026 · 36 CEUs
+        </p>
+        <p>
+          A project-based program building data engineering skills that extend my existing Python
+          automation background into data pipeline architecture, big data processing, and machine learning
+          integration. Each module produces portfolio-ready projects on GitHub—bridging the gap between
+          hardware test data workflows and scalable data infrastructure.
+        </p>
+      </div>
+      <div class="skill-dev-badge">
+        <span class="pulse"></span>
+        In Progress
+      </div>
+    </div>
+
+    <div class="curriculum-grid">
+      <div class="curric-column">
+        <h4>Foundations & Data Infrastructure</h4>
+        <ul>
+          <li>Python programming, NumPy, and pandas</li>
+          <li>SQL databases and advanced query design</li>
+          <li>Database analysis and client–server architecture</li>
+          <li>ETL pipelines, analysis, and visualization</li>
+          <li>Software engineering fundamentals</li>
+          <li>Database types and containerization</li>
+          <li>GitHub and advanced Python functions</li>
+          <li>Change Data Capture (CDC) with Java and Debezium</li>
+        </ul>
+      </div>
+      <div class="curric-column">
+        <h4>Big Data & Machine Learning</h4>
+        <ul>
+          <li>Web application development with advanced Python</li>
+          <li>Transit data and API integration</li>
+          <li>ETL orchestration using Apache NiFi</li>
+          <li>Big data processing with Spark and Airflow</li>
+          <li>Introduction to ML and advanced probability</li>
+          <li>Reinforcement learning and deep neural networks</li>
+          <li>Live streaming data pipelines</li>
+          <li>Big data streaming with Mosquitto, ThingsBoard, and Kafka</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" style="margin-bottom: 0.7rem;">Program Tooling</div>
+      <div class="tools-row">
+        <span class="tool-chip">Python</span>
+        <span class="tool-chip">SQL / MySQL</span>
+        <span class="tool-chip">MongoDB</span>
+        <span class="tool-chip">Apache Spark</span>
+        <span class="tool-chip">Apache Kafka</span>
+        <span class="tool-chip">Apache Airflow</span>
+        <span class="tool-chip">Apache NiFi</span>
+        <span class="tool-chip">Hadoop</span>
+        <span class="tool-chip">NumPy</span>
+        <span class="tool-chip">pandas</span>
+        <span class="tool-chip">Jupyter</span>
+        <span class="tool-chip">Docker</span>
+        <span class="tool-chip">GitHub</span>
+      </div>
+    </div>
+
+    <div class="program-link-row">
+      <a href="https://executive-ed.xpro.mit.edu/professional-certificate-data-engineering" target="_blank" rel="noopener">
+        View program details at MIT xPRO
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+      </a>
+    </div>
+
+    <!-- CADENCE CERTIFICATION -->
+    <hr class="program-divider">
+
+    <div class="skill-dev-header">
+      <div>
+        <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem;">
+          Analog/Mixed Signal Circuit Modeling Domain Certification
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--accent); font-weight: 500; margin-bottom: 0.7rem;">
+          Cadence Design Systems · 10 days (80 hours) · 5 courses with badge exams
+        </p>
+        <p>
+          A curated certification path that directly addresses the AMS behavioral modeling discipline 
+          used in mixed-signal IC development. The sequence builds from analog modeling fundamentals 
+          through Real Number Modeling with SystemVerilog—the same modeling languages and simulation 
+          environments used in roles that bridge pre-silicon design verification and post-silicon 
+          hardware validation. My existing Verilog/HDL background from FPGA-based characterization 
+          and Cadence EDA coursework at NYU provide the foundation for this next step.
+        </p>
+      </div>
+      <div class="skill-dev-badge planned">
+        <span class="pulse"></span>
+        Planned
+      </div>
+    </div>
+
+    <div class="curriculum-grid">
+      <div class="curric-column">
+        <h4>Certification Modules</h4>
+        <ul>
+          <li>Semiconductor 101 — EDA industry foundations</li>
+          <li>Analog Modeling with Verilog-A</li>
+          <li>Behavioral Modeling with Verilog-AMS</li>
+          <li>Real Number Modeling with Verilog-AMS</li>
+          <li>Real Number Modeling with SystemVerilog</li>
+        </ul>
+      </div>
+      <div class="curric-column">
+        <h4>Skills Developed</h4>
+        <ul>
+          <li>Create and simulate analog behavioral models in Verilog-A using Virtuoso ADE</li>
+          <li>Build parameterized mixed-signal models for DACs, ADCs, PLLs, and amplifiers</li>
+          <li>Apply Real Number Modeling (wreal) for high-performance mixed-signal verification</li>
+          <li>Develop SystemVerilog real-number models with extended nettypes and connect modules</li>
+          <li>Verify model functionality using Spectre AMS Designer Simulator</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" style="margin-bottom: 0.7rem;">Cadence Tooling</div>
+      <div class="tools-row">
+        <span class="tool-chip">Verilog-A</span>
+        <span class="tool-chip">Verilog-AMS</span>
+        <span class="tool-chip">SystemVerilog RNM</span>
+        <span class="tool-chip">Virtuoso ADE</span>
+        <span class="tool-chip">Spectre AMS Designer</span>
+      </div>
+    </div>
+
+    <div class="program-link-row">
+      <a href="https://www.cadence.com/en_US/home/training/all-courses/86396.html" target="_blank" rel="noopener">
+        View certification details at Cadence
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="section-inner">
+    <div class="section-label">Education & Certifications</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <h3>MS Electrical Engineering</h3>
+        <div class="edu-school">New York University · 2018 · GPA 3.4</div>
+        <p>
+          Fundamentals of Analog IC Design, Introduction to VLSI Design, Power Electronics, 
+          Nanoelectronics Devices, Digital Signal Processing, Power Systems. 
+          Cadence EDA tools used in coursework.
+        </p>
+        <p style="margin-top: 0.5rem; font-style: italic; font-size: 0.85rem;">
+          Thesis: Physically Unclonable Functions using Nanomaterials
+        </p>
+      </div>
+
+      <div class="edu-card">
+        <h3>BS Electrical Engineering</h3>
+        <div class="edu-school">University of Central Florida · 2015 · GPA 3.3</div>
+        <p>
+          Embedded Systems, Electronics, Semiconductor Devices, Electric Machinery. 
+          IEEE Collegiate Member, NSBE Collegiate Member.
+        </p>
+      </div>
+
+      <div class="edu-card">
+        <h3>Engineer in Training (EIT)</h3>
+        <div class="edu-school">Florida Board of Professional Engineers</div>
+        <p>License #1100022206</p>
+        <div class="edu-cert">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Active Certification
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <p style="color: var(--text-secondary); font-size: 1rem;">
+      Open to data engineering, analog validation and characterization, and hardware test engineering
+      roles in the semiconductor and technology industries. Reach out to discuss opportunities or collaboration.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:adarren1261@gmail.com" class="contact-btn primary">Email Me</a>
+      <a href="https://linkedin.com/in/-darrenarmstrong" target="_blank" rel="noopener" class="contact-btn secondary">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Darren Armstrong. Built with purpose.</p>
+</footer>
+
+<!-- SIGNAL TRACE BACKGROUND ANIMATION -->
+<script>
+(function() {
+  const canvas = document.getElementById('signalCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, frame = 0;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = '#3B82F6';
+    ctx.lineWidth = 1.5;
+
+    for (let line = 0; line < 4; line++) {
+      ctx.beginPath();
+      const baseY = h * 0.2 + line * (h * 0.18);
+      for (let x = 0; x < w; x += 2) {
+        const y = baseY +
+          Math.sin((x + frame * 0.3) * 0.008 + line * 1.2) * 18 +
+          Math.sin((x + frame * 0.5) * 0.02 + line * 0.8) * 8;
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    frame++;
+    requestAnimationFrame(draw);
+  }
+
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mq.matches) {
+    resize();
+    window.addEventListener('resize', resize);
+    draw();
+  }
+})();
+</script>
+
+</body>
+</html>

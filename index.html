@@ -597,7 +597,7 @@ footer {
       <div class="hero-eyebrow">Senior Electrical Engineer</div>
       <h1>Darren Armstrong</h1>
       <p class="hero-subtitle">
-        Hardware validation engineer with 6+ years of experience in high-speed interface characterization,
+        Hardware validation engineer with 5+ years of experience in high-speed interface characterization,
         signal integrity analysis, and Python-based test automation—now expanding into data engineering
         and scalable data pipeline architecture.
       </p>
@@ -663,7 +663,7 @@ footer {
     <h2 class="section-title">From Bringup to System Debug</h2>
     <div class="about-body">
       <p>
-        I've spent the past six years building deep expertise in post-silicon hardware validation—starting from 
+        I've spent the past 5+ years building deep expertise in post-silicon hardware validation—starting from 
         foundational lab bringup and measurement procedures, then growing into independent ownership of full 
         characterization flows across multiple silicon generations.
       </p>
@@ -701,9 +701,10 @@ footer {
       <div class="exp-card">
         <h3><span class="dot"></span>Signal Integrity & Compliance</h3>
         <p>
-          DDR4/5/6 characterization and JEDEC compliance testing. Detailed signal analysis including 
-          jitter measurement, eye diagram evaluation, insertion loss characterization, and cross-vendor 
-          comparison across multiple memory configurations.
+          DDR4/5/6 characterization and JEDEC compliance testing across 3 memory vendors at split and
+          worst-case corner conditions. Detailed signal analysis including jitter measurement, eye diagram
+          evaluation, insertion loss characterization, and cross-vendor comparison across multiple memory
+          configurations.
         </p>
       </div>
 
@@ -719,8 +720,9 @@ footer {
       <div class="exp-card">
         <h3><span class="dot"></span>System Debug</h3>
         <p>
-          Complex debug spanning calibration flows, timing mismatches, training algorithms, and 
-          instrument interactions. Ownership of issues that cross software, hardware, and measurement 
+          Complex debug spanning calibration flows, timing mismatches, training algorithms, and
+          instrument interactions, including register-level silicon-firmware co-debug via JTAG
+          (Lauterbach/TRACE32). Ownership of issues that cross software, hardware, and measurement
           boundaries to provide actionable root-cause analysis.
         </p>
       </div>
@@ -728,8 +730,10 @@ footer {
       <div class="exp-card">
         <h3><span class="dot"></span>Instrumentation</h3>
         <p>
-          Hands-on proficiency with high-speed lab equipment for signal integrity and performance 
-          testing—oscilloscopes, bit error rate testers, vector network analyzers—and development 
+          Hands-on proficiency with high-speed lab equipment for signal integrity and performance
+          testing—oscilloscopes, bit error rate testers, vector network analyzers—plus PyVISA-based
+          instrument-driver automation integrating oscilloscopes, power supplies, function/waveform
+          generators, multimeters, and source-measure units into the data-capture pipeline. Development
           of new loss and impedance evaluation techniques.
         </p>
       </div>
@@ -760,11 +764,14 @@ footer {
         <div class="tl-role">Senior Electrical Engineer</div>
         <div class="tl-company">Qualcomm — San Diego, CA</div>
         <div class="tl-desc">
-          Led full execution of compliance characterization across multiple memory vendors and configurations. 
-          Drove complex system debug involving calibration flows, timing mismatches, and jitter behaviors. 
-          Re-architected compliance automation into a fully Python-based platform and created a live-plotting 
-          system for real-time test visualization. Expanded expertise across multiple protocol and interface 
-          modes for next-generation platform bringup.
+          Led pre-/post-silicon validation and JEDEC compliance characterization of DDR5/DDR6 IP across 3
+          memory vendors at split and worst-case corner conditions. Contributed substantially to re-architecting
+          fragmented test automation into a unified Python platform, independently owning its compliance-level
+          automation. Developed multithreaded characterization automation that cut test runtime ~35% and
+          automated compliance data processing that saved ~2 hours per cycle (40+ parameters × 10 conditions
+          per DUT). Debugged DDR training firmware at the register level via JTAG (Lauterbach) and built
+          PyVISA-based instrument-driver automation across five instrument classes, plus a live-plotting
+          system for real-time test visualization.
         </div>
       </div>
 
@@ -818,8 +825,8 @@ footer {
         <div class="pres-tag">Engineering Summit</div>
         <h3>Multi-Threaded Test Automation Framework</h3>
         <p>
-          Designed and presented a multi-threaded automation architecture that significantly reduced 
-          test execution time for compliance characterization. The framework parallelized instrument 
+          Designed and presented a multi-threaded automation architecture that reduced test execution
+          time ~35% for compliance characterization. The framework parallelized instrument
           control and data capture across multiple hardware configurations.
         </p>
       </div>
@@ -955,7 +962,7 @@ footer {
         </ul>
       </div>
       <div class="curric-column">
-        <h4>Skills Developed</h4>
+        <h4>What This Builds</h4>
         <ul>
           <li>Build class-based SystemVerilog verification environments using OOP principles</li>
           <li>Architect reusable UVM verification components (drivers, monitors, agents)</li>
@@ -1050,7 +1057,7 @@ footer {
         </ul>
       </div>
       <div class="curric-column">
-        <h4>Skills Developed</h4>
+        <h4>What This Builds</h4>
         <ul>
           <li>Create and simulate analog behavioral models in Verilog-A using Virtuoso ADE</li>
           <li>Build parameterized mixed-signal models for DACs, ADCs, PLLs, and amplifiers</li>

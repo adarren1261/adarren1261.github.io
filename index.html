@@ -370,10 +370,57 @@ section { padding: 5rem 2rem; }
   animation: none;
   opacity: 0.6;
 }
+.skill-dev-badge.completed {
+  background: rgba(52,211,153,0.1);
+  color: #34D399;
+}
+.skill-dev-badge.completed .pulse {
+  background: #34D399;
+  animation: none;
+  opacity: 0.9;
+}
 .program-divider {
   border: none;
   border-top: 1px solid var(--border);
   margin: 2.6rem 0;
+}
+.projects-block {
+  margin-top: 1.6rem;
+}
+.project-item {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+}
+.project-item:last-child { margin-bottom: 0; }
+.project-item h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.98rem; font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.project-status {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: rgba(245,158,11,0.1);
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+}
+.project-status.proposed {
+  color: var(--accent);
+  background: rgba(59,130,246,0.1);
+}
+.project-item.proposed { border-left-color: var(--accent); }
+.project-item p {
+  font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6;
 }
 @keyframes pulse-glow {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
@@ -570,15 +617,20 @@ footer {
   <!-- STATUS CARDS -->
   <div class="hero-status-row">
     <div class="status-card">
-      <div class="status-card-label learning">
-        <span class="status-dot amber"></span>
-        Currently Enrolled
+      <div class="status-card-label open">
+        <span class="status-dot green"></span>
+        Credential Earned
       </div>
       <h3>MIT xPRO — Professional Certificate in Data Engineering</h3>
       <p>
-        28-week project-based program (completing September 2026) building skills in data pipeline architecture,
-        big data processing with Spark and Kafka, SQL/NoSQL databases, and ML integration.
-        Expanding my Python automation foundation into scalable data infrastructure.
+        Awarded September 2026. A 28-week project-based program in data pipeline architecture, big data
+        processing with Spark and Kafka, SQL/NoSQL databases, and ML integration—extending my Python
+        automation foundation into scalable data infrastructure.
+      </p>
+      <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.07);">
+        Currently continuing into AMS behavioral modeling (Cadence) and UVM-based verification 
+        (Siemens Xcelerator Academy)—building toward independent portfolio projects, targeting 
+        completion November 2026.
       </p>
     </div>
     <div class="status-card">
@@ -797,18 +849,18 @@ footer {
           Professional Certificate in Data Engineering
         </h3>
         <p style="font-size: 0.92rem; color: var(--accent); font-weight: 500; margin-bottom: 0.7rem;">
-          MIT xPRO · Enrolled February 2026 · Completing September 2026 · 36 CEUs
+          MIT xPRO · Awarded September 2026 · 36 CEUs
         </p>
         <p>
-          A project-based program building data engineering skills that extend my existing Python
-          automation background into data pipeline architecture, big data processing, and machine learning
-          integration. Each module produces portfolio-ready projects on GitHub—bridging the gap between
-          hardware test data workflows and scalable data infrastructure.
+          A completed project-based program that extended my existing Python automation background into
+          data pipeline architecture, big data processing, and machine learning integration. Each module
+          produced portfolio-ready projects on GitHub—bridging the gap between hardware test data workflows
+          and scalable data infrastructure.
         </p>
       </div>
-      <div class="skill-dev-badge">
+      <div class="skill-dev-badge completed">
         <span class="pulse"></span>
-        In Progress
+        Completed
       </div>
     </div>
 
@@ -867,6 +919,97 @@ footer {
       </a>
     </div>
 
+    <!-- SYSTEMVERILOG & UVM VERIFICATION -->
+    <hr class="program-divider">
+
+    <div class="skill-dev-header">
+      <div>
+        <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem;">
+          SystemVerilog &amp; UVM Verification Methodology
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--accent); font-weight: 500; margin-bottom: 0.7rem;">
+          Siemens Xcelerator Academy (Verification Academy) · 10-week self-paced program · 3 portfolio projects
+        </p>
+        <p>
+          Structured learning in SystemVerilog fundamentals and the Universal Verification 
+          Methodology (UVM)—the industry-standard framework for building reusable, scalable 
+          verification environments. Extends my existing Verilog/HDL foundation into modern 
+          verification methodology, producing independent testbench and verification-component 
+          projects published to GitHub as each is completed.
+        </p>
+      </div>
+      <div class="skill-dev-badge">
+        <span class="pulse"></span>
+        In Progress
+      </div>
+    </div>
+
+    <div class="curriculum-grid">
+      <div class="curric-column">
+        <h4>Learning Progression</h4>
+        <ul>
+          <li>SystemVerilog OOP fundamentals — classes, randomization, constraints, inheritance</li>
+          <li>SystemVerilog verification features — functional coverage, assertions (SVA)</li>
+          <li>UVM architecture — drivers, monitors, sequencers, scoreboards, factory pattern</li>
+          <li>UVM phasing, objections, TLM analysis ports, sequence libraries, virtual sequencers</li>
+        </ul>
+      </div>
+      <div class="curric-column">
+        <h4>Skills Developed</h4>
+        <ul>
+          <li>Build class-based SystemVerilog verification environments using OOP principles</li>
+          <li>Architect reusable UVM verification components (drivers, monitors, agents)</li>
+          <li>Apply constrained-random stimulus generation and functional coverage closure</li>
+          <li>Develop scoreboards and reference models for self-checking testbenches</li>
+          <li>Compare raw-SystemVerilog and UVM-based verification approaches directly</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" style="margin-bottom: 0.7rem;">Verification Tooling</div>
+      <div class="tools-row">
+        <span class="tool-chip">SystemVerilog</span>
+        <span class="tool-chip">UVM</span>
+        <span class="tool-chip">Functional Coverage</span>
+        <span class="tool-chip">SVA</span>
+        <span class="tool-chip">Xcelium</span>
+      </div>
+    </div>
+
+    <div class="projects-block">
+      <div class="section-label" style="margin-bottom: 0.9rem;">Portfolio Projects</div>
+      <div class="project-item proposed">
+        <h5>
+          FIFO Verification — SystemVerilog vs. UVM
+          <span class="project-status proposed">Proposed</span>
+        </h5>
+        <p>
+          A side-by-side testbench comparison verifying the same FIFO design first in raw 
+          SystemVerilog, then rebuilt as a full UVM environment—demonstrating the practical 
+          trade-offs in reusability, scalability, and coverage between the two approaches.
+        </p>
+      </div>
+      <div class="project-item proposed">
+        <h5>
+          APB Protocol UVC
+          <span class="project-status proposed">Proposed</span>
+        </h5>
+        <p>
+          A complete, reusable Universal Verification Component for the APB protocol—including 
+          reference model, scoreboard, constrained-random sequences, and functional coverage 
+          closure—built to UVM architecture standards.
+        </p>
+      </div>
+    </div>
+
+    <div class="program-link-row">
+      <a href="https://verificationacademy.com" target="_blank" rel="noopener">
+        View program details at Verification Academy
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+      </a>
+    </div>
+
     <!-- CADENCE CERTIFICATION -->
     <hr class="program-divider">
 
@@ -884,7 +1027,9 @@ footer {
           through Real Number Modeling with SystemVerilog—the same modeling languages and simulation 
           environments used in roles that bridge pre-silicon design verification and post-silicon 
           hardware validation. My existing Verilog/HDL background from FPGA-based characterization 
-          and Cadence EDA coursework at NYU provide the foundation for this next step.
+          and Cadence EDA coursework at NYU provide the foundation for this next step. Each modeling 
+          technique learned is independently applied to build a small library of original behavioral 
+          models—published to GitHub as the certification progresses.
         </p>
       </div>
       <div class="skill-dev-badge planned">
@@ -924,6 +1069,22 @@ footer {
         <span class="tool-chip">SystemVerilog RNM</span>
         <span class="tool-chip">Virtuoso ADE</span>
         <span class="tool-chip">Spectre AMS Designer</span>
+      </div>
+    </div>
+
+    <div class="projects-block">
+      <div class="section-label" style="margin-bottom: 0.9rem;">Proposed Project</div>
+      <div class="project-item proposed">
+        <h5>
+          AMS Behavioral Model Library
+          <span class="project-status proposed">Proposed · GitHub</span>
+        </h5>
+        <p>
+          A small set of independently built models—comparator/DAC, VCO/sample-and-hold, and 
+          real-number variants of the same blocks—demonstrating the same circuit function modeled 
+          at multiple levels of abstraction, accompanied by a written comparison of the accuracy 
+          versus simulation-speed tradeoffs between them.
+        </p>
       </div>
     </div>
 
